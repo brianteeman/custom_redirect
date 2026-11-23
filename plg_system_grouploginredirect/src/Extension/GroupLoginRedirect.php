@@ -8,18 +8,18 @@
  * @license     GNU General Public License version 2 or later; see LICENSE.txt
  */
 
-namespace Joomla\\Plugin\\System\\GroupLoginRedirect\\Extension;
+namespace Joomla\Plugin\System\GroupLoginRedirect\Extension;
 
-use Joomla\\CMS\\Application\\CMSApplicationInterface;
-use Joomla\\CMS\\Event\\User\\AfterLoginEvent;
-use Joomla\\CMS\\Event\\User\\AfterLogoutEvent;
-use Joomla\\CMS\\Factory;
-use Joomla\\CMS\\Plugin\\CMSPlugin;
-use Joomla\\CMS\\Router\\Route;
-use Joomla\\Event\\SubscriberInterface;
+use Joomla\CMS\Application\CMSApplicationInterface;
+use Joomla\CMS\Event\User\AfterLoginEvent;
+use Joomla\CMS\Event\User\AfterLogoutEvent;
+use Joomla\CMS\Factory;
+use Joomla\CMS\Plugin\CMSPlugin;
+use Joomla\CMS\Router\Route;
+use Joomla\Event\SubscriberInterface;
 
 // phpcs:disable PSR1.Files.SideEffects
-\\defined('_JEXEC') or die;
+\defined('_JEXEC') or die;
 // phpcs:enable PSR1.Files.SideEffects
 
 /**
