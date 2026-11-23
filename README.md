@@ -1,4 +1,4 @@
-# Group Login and Logout Redirect
+# Group Login and Logout Redirect Plugin
 
 A Joomla 6 system plugin that redirects frontend users to selected menu items after a successful login or logout, based on their assigned Joomla user groups.
 
