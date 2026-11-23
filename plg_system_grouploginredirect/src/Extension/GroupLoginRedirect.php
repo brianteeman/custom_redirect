@@ -44,7 +44,7 @@ final class GroupLoginRedirect extends CMSPlugin implements SubscriberInterface
 
         $user = $event->getOptions()['user'] ?? null;
 
-        if (!$user || empty($user->id) || empty($user->groups)) {
+        if (!$user || empty($user->id)) {
             return;
         }
 
@@ -54,7 +54,7 @@ final class GroupLoginRedirect extends CMSPlugin implements SubscriberInterface
             return;
         }
 
-        $userGroups = array_map('intval', array_values($user->groups));
+        $userGroups = array_map('intval', $user->getAuthorisedGroups());
 
         foreach ($rules as $rule) {
             $groupId = (int) ($rule->usergroup ?? 0);
