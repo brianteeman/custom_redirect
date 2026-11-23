@@ -2,6 +2,8 @@
 
 A Joomla 6 system plugin that redirects frontend users to selected menu items after a successful login or logout, based on their assigned Joomla user groups.
 
+<img width="1200" height="525" alt="Woman pointing in two different directions" src="https://github.com/user-attachments/assets/17d0c175-aa49-40da-b2ef-a6bbd6f785ec" />
+
 ## Configuration
 
 Add as many group rules as required. Each rule contains:
