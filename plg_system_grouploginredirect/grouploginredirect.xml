@@ -7,7 +7,7 @@
     <license>GNU General Public License version 2 or later</license>
     <version>1.0.0</version>
     <description>PLG_SYSTEM_GROUPLOGINREDIRECT_XML_DESCRIPTION</description>
-    <namespace path="src">Joomla\Plugin\System\GroupLoginRedirect</namespace>
+    <namespace path="src">Joomla\\Plugin\\System\\GroupLoginRedirect</namespace>
     <files>
         <folder plugin="grouploginredirect">services</folder>
         <folder>src</folder>
@@ -47,10 +47,18 @@
                         <field
                             name="menuitem"
                             type="menuitem"
-                            label="PLG_SYSTEM_GROUPLOGINREDIRECT_FIELD_MENUITEM_LABEL"
-                            description="PLG_SYSTEM_GROUPLOGINREDIRECT_FIELD_MENUITEM_DESC"
+                            label="PLG_SYSTEM_GROUPLOGINREDIRECT_FIELD_MENUITEM_LOGIN_LABEL"
+                            description="PLG_SYSTEM_GROUPLOGINREDIRECT_FIELD_MENUITEM_LOGIN_DESC"
                             disable="separator,alias,heading,url"
                             required="true"
+                        />
+                        <field
+                            name="menuitem_logout"
+                            type="menuitem"
+                            label="PLG_SYSTEM_GROUPLOGINREDIRECT_FIELD_MENUITEM_LOGOUT_LABEL"
+                            description="PLG_SYSTEM_GROUPLOGINREDIRECT_FIELD_MENUITEM_LOGOUT_DESC"
+                            disable="separator,alias,heading,url"
+                            required="false"
                         />
                     </form>
                 </field>
