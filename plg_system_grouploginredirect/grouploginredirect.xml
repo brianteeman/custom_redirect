@@ -16,6 +16,9 @@
         <language tag="en-GB">language/en-GB/plg_system_grouploginredirect.ini</language>
         <language tag="en-GB">language/en-GB/plg_system_grouploginredirect.sys.ini</language>
     </languages>
+    <updateservers>
+        <server type="extension" name="Group Login Redirect Updates">https://raw.githubusercontent.com/brianteeman/custom_redirect/main/update.xml</server>
+    </updateservers>
     <config>
         <fields name="params">
             <fieldset name="basic">
