@@ -53,7 +53,7 @@ For each new release:
    git tag v1.1.0
    git push origin v1.1.0
    ```
-6. GitHub Actions runs automatically when the tag is pushed. It checks out the tagged source, builds `plg_system_grouploginredirect.zip`, and attaches the package to the matching GitHub Release. If the release does not already exist, the workflow creates it.
+6. GitHub Actions runs automatically when the tag is pushed. It checks out the tagged source, builds `plg_system_grouploginredirect.zip`, and attaches the package to the matching GitHub Release. If the release does not already exist, the workflow creates it with a title in the format **Group Login and Logout Redirect Plugin v1.1.0**, using the actual tag name in place of `v1.1.0`.
 
 ### Manual release steps
 
