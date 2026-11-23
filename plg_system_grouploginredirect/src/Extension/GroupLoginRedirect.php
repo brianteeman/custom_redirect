@@ -8,16 +8,16 @@
  * @license     GNU General Public License version 2 or later; see LICENSE.txt
  */
 
-namespace Joomla\Plugin\System\GroupLoginRedirect\Extension;
+namespace Joomla\\Plugin\\System\\GroupLoginRedirect\\Extension;
 
-use Joomla\CMS\Application\CMSApplicationInterface;
-use Joomla\CMS\Event\User\AfterLoginEvent;
-use Joomla\CMS\Plugin\CMSPlugin;
-use Joomla\CMS\Router\Route;
-use Joomla\Event\SubscriberInterface;
+use Joomla\\CMS\\Application\\CMSApplicationInterface;
+use Joomla\\CMS\\Event\\User\\AfterLoginEvent;
+use Joomla\\CMS\\Plugin\\CMSPlugin;
+use Joomla\\CMS\\Router\\Route;
+use Joomla\\Event\\SubscriberInterface;
 
 // phpcs:disable PSR1.Files.SideEffects
-\defined('_JEXEC') or die;
+\\defined('_JEXEC') or die;
 // phpcs:enable PSR1.Files.SideEffects
 
 /**
@@ -48,9 +48,9 @@ final class GroupLoginRedirect extends CMSPlugin implements SubscriberInterface
             return;
         }
 
-        $rules = $this->params->get('rules', []);
+        $rules = (array) $this->params->get('rules', []);
 
-        if (!is_array($rules) || $rules === []) {
+        if ($rules === []) {
             return;
         }
 
@@ -66,7 +66,7 @@ final class GroupLoginRedirect extends CMSPlugin implements SubscriberInterface
 
             $menuItem = $app->getMenu()->getItem($menuItemId);
 
-            if (!$menuItem || (int) $menuItem->client_id !== 0 || (int) $menuItem->published !== 1) {
+            if (!$menuItem) {
                 continue;
             }
 
