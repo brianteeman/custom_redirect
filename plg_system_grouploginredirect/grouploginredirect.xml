@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="plugin" group="system" method="upgrade">
+    <name>PLG_SYSTEM_GROUPLOGINREDIRECT</name>
+    <author>Brian Teeman</author>
+    <creationDate>November 2026</creationDate>
+    <copyright>(C) 2026 Brian Teeman</copyright>
+    <license>GNU General Public License version 2 or later</license>
+    <version>1.0.0</version>
+    <description>PLG_SYSTEM_GROUPLOGINREDIRECT_XML_DESCRIPTION</description>
+    <namespace path="src">Joomla\Plugin\System\GroupLoginRedirect</namespace>
+    <files>
+        <folder plugin="grouploginredirect">services</folder>
+        <folder>src</folder>
+    </files>
+    <languages>
+        <language tag="en-GB">language/en-GB/plg_system_grouploginredirect.ini</language>
+        <language tag="en-GB">language/en-GB/plg_system_grouploginredirect.sys.ini</language>
+    </languages>
+    <config>
+        <fields name="params">
+            <fieldset name="basic">
+                <field
+                    name="rules_info"
+                    type="note"
+                    label="PLG_SYSTEM_GROUPLOGINREDIRECT_NOTE_RULES_LABEL"
+                    description="PLG_SYSTEM_GROUPLOGINREDIRECT_NOTE_RULES_DESC"
+                    class="alert alert-info"
+                />
+                <field
+                    name="rules"
+                    type="subform"
+                    label="PLG_SYSTEM_GROUPLOGINREDIRECT_FIELD_RULES_LABEL"
+                    description="PLG_SYSTEM_GROUPLOGINREDIRECT_FIELD_RULES_DESC"
+                    multiple="true"
+                    layout="joomla.form.field.subform.repeatable-table"
+                    buttons="add,remove,move"
+                    min="1">
+                    <form>
+                        <field
+                            name="usergroup"
+                            type="usergrouplist"
+                            label="PLG_SYSTEM_GROUPLOGINREDIRECT_FIELD_USERGROUP_LABEL"
+                            description="PLG_SYSTEM_GROUPLOGINREDIRECT_FIELD_USERGROUP_DESC"
+                            required="true"
+                            multiple="false"
+                        />
+                        <field
+                            name="menuitem"
+                            type="menuitem"
+                            label="PLG_SYSTEM_GROUPLOGINREDIRECT_FIELD_MENUITEM_LOGIN_LABEL"
+                            description="PLG_SYSTEM_GROUPLOGINREDIRECT_FIELD_MENUITEM_LOGIN_DESC"
+                            disable="separator,alias,heading,url"
+                            required="true"
+                        />
+                        <field
+                            name="menuitem_logout"
+                            type="menuitem"
+                            label="PLG_SYSTEM_GROUPLOGINREDIRECT_FIELD_MENUITEM_LOGOUT_LABEL"
+                            description="PLG_SYSTEM_GROUPLOGINREDIRECT_FIELD_MENUITEM_LOGOUT_DESC"
+                            disable="separator,alias,heading,url"
+                            required="false"
+                        />
+                    </form>
+                </field>
+            </fieldset>
+        </fields>
+    </config>
+</extension>
