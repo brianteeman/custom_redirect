@@ -7,7 +7,7 @@
     <license>GNU General Public License version 2 or later</license>
     <version>1.0.0</version>
     <description>PLG_SYSTEM_GROUPLOGINREDIRECT_XML_DESCRIPTION</description>
-    <namespace path="src">Joomla\\Plugin\\System\\GroupLoginRedirect</namespace>
+    <namespace path="src">Joomla\Plugin\System\GroupLoginRedirect</namespace>
     <files>
         <folder plugin="grouploginredirect">services</folder>
         <folder>src</folder>
