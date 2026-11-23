@@ -41,6 +41,6 @@ jobs:
           else
             gh release create "$RELEASE_TAG" \
               "$GITHUB_WORKSPACE/plg_system_grouploginredirect.zip" \
-              --title "$RELEASE_TAG" \
+              --title "Group Login and Logout Redirect Plugin $RELEASE_TAG" \
               --generate-notes
           fi
