@@ -5,36 +5,32 @@
  * @subpackage  System.grouploginredirect
  *
  * @copyright   (C) 2026 Brian Teeman
- * @license     GNU General Public License version 2 or later
+ * @license     GNU General Public License version 2 or later; see LICENSE.txt
  */
 
-defined('_JEXEC') or die;
+\defined('_JEXEC') or die;
 
+use Joomla\CMS\Extension\PluginInterface;
+use Joomla\CMS\Factory;
+use Joomla\CMS\Plugin\PluginHelper;
 use Joomla\DI\Container;
 use Joomla\DI\ServiceProviderInterface;
-use Joomla\CMS\Extension\Service\Provider\PluginDispatcherFactory;
-use Joomla\CMS\Extension\Service\Provider\PluginInterface;
-use Joomla\CMS\Extension\Service\Provider\MVCFactory;
-use Joomla\CMS\Extension\Service\Provider\ComponentDispatcherFactory;
+use Joomla\Plugin\System\GroupLoginRedirect\Extension\GroupLoginRedirect;
 
-return new class implements ServiceProviderInterface {
+return new class () implements ServiceProviderInterface {
     public function register(Container $container): void
     {
-        $container->registerServiceProvider(new PluginDispatcherFactory('system'));
-        $container->registerServiceProvider(new MVCFactory('Joomla\\CMS\\Component\\'));
-        $container->registerServiceProvider(new ComponentDispatcherFactory('Joomla\\CMS\\Component\\'));
         $container->set(
             PluginInterface::class,
-            function (Container $container) {
+            $container->lazy(GroupLoginRedirect::class, function (Container $container) {
                 $plugin = new GroupLoginRedirect(
-                    $container->get(\Joomla\Event\DispatcherInterface::class),
-                    (array) $container->get('Config')->get(' plg_system_grouploginredirect')
+                    (array) PluginHelper::getPlugin('system', 'grouploginredirect')
                 );
 
-                $plugin->setApplication(\Joomla\CMS\Factory::getApplication());
+                $plugin->setApplication(Factory::getApplication());
 
                 return $plugin;
-            }
+            })
         );
     }
 };
