@@ -54,7 +54,7 @@ final class GroupLoginRedirect extends CMSPlugin implements SubscriberInterface
             return;
         }
 
-        $userGroups = array_map('intval', array_keys($user->groups));
+        $userGroups = array_map('intval', array_values($user->groups));
 
         foreach ($rules as $rule) {
             $groupId = (int) ($rule->usergroup ?? 0);
