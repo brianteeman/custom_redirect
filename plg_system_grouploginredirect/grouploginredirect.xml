@@ -53,16 +53,18 @@
                             label="PLG_SYSTEM_GROUPLOGINREDIRECT_FIELD_MENUITEM_LOGIN_LABEL"
                             description="PLG_SYSTEM_GROUPLOGINREDIRECT_FIELD_MENUITEM_LOGIN_DESC"
                             disable="separator,alias,heading,url"
-                            required="true"
-                        />
+                            required="true">
+                            <option value="">PLG_SYSTEM_GROUPLOGINREDIRECT_SELECT_MENU_ITEM</option>
+                        </field>
                         <field
                             name="menuitem_logout"
                             type="menuitem"
                             label="PLG_SYSTEM_GROUPLOGINREDIRECT_FIELD_MENUITEM_LOGOUT_LABEL"
                             description="PLG_SYSTEM_GROUPLOGINREDIRECT_FIELD_MENUITEM_LOGOUT_DESC"
                             disable="separator,alias,heading,url"
-                            required="false"
-                        />
+                            required="false">
+                            <option value="">PLG_SYSTEM_GROUPLOGINREDIRECT_SELECT_MENU_ITEM</option>
+                        </field>
                     </form>
                 </field>
             </fieldset>
