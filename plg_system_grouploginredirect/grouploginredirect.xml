@@ -27,7 +27,7 @@
                     multiple="true"
                     layout="joomla.form.field.subform.repeatable-table"
                     buttons="add,remove,move"
-                    min="0">
+                    min="1">
                     <form>
                         <field
                             name="usergroup"
@@ -42,6 +42,7 @@
                             type="menuitem"
                             label="PLG_SYSTEM_GROUPLOGINREDIRECT_FIELD_MENUITEM_LABEL"
                             description="PLG_SYSTEM_GROUPLOGINREDIRECT_FIELD_MENUITEM_DESC"
+                            disable="separator,alias,heading,url"
                             required="true"
                         />
                     </form>
