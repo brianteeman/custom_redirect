@@ -20,6 +20,13 @@
         <fields name="params">
             <fieldset name="basic">
                 <field
+                    name="rules_info"
+                    type="note"
+                    label="PLG_SYSTEM_GROUPLOGINREDIRECT_NOTE_RULES_LABEL"
+                    description="PLG_SYSTEM_GROUPLOGINREDIRECT_NOTE_RULES_DESC"
+                    class="alert alert-info"
+                />
+                <field
                     name="rules"
                     type="subform"
                     label="PLG_SYSTEM_GROUPLOGINREDIRECT_FIELD_RULES_LABEL"
