@@ -31,7 +31,7 @@
                     <form>
                         <field
                             name="usergroup"
-                            type="usergroup"
+                            type="usergrouplist"
                             label="PLG_SYSTEM_GROUPLOGINREDIRECT_FIELD_USERGROUP_LABEL"
                             description="PLG_SYSTEM_GROUPLOGINREDIRECT_FIELD_USERGROUP_DESC"
                             required="true"
