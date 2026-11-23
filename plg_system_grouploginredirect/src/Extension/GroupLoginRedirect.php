@@ -5,19 +5,20 @@
  * @subpackage  System.grouploginredirect
  *
  * @copyright   (C) 2026 Brian Teeman
- * @license     GNU General Public License version 2 or later
+ * @license     GNU General Public License version 2 or later; see LICENSE.txt
  */
 
 namespace Joomla\Plugin\System\GroupLoginRedirect\Extension;
 
-\defined('_JEXEC') or die;
-
-use Joomla\CMS\Application\CMSApplication;
+use Joomla\CMS\Application\CMSApplicationInterface;
+use Joomla\CMS\Event\User\AfterLoginEvent;
 use Joomla\CMS\Plugin\CMSPlugin;
 use Joomla\CMS\Router\Route;
-use Joomla\Component\Users\Administrator\Model\UserModel;
 use Joomla\Event\SubscriberInterface;
-use Joomla\Registry\Registry;
+
+// phpcs:disable PSR1.Files.SideEffects
+\defined('_JEXEC') or die;
+// phpcs:enable PSR1.Files.SideEffects
 
 /**
  * Redirect frontend users to a menu item based on their assigned groups.
@@ -26,9 +27,6 @@ final class GroupLoginRedirect extends CMSPlugin implements SubscriberInterface
 {
     protected $autoloadLanguage = true;
 
-    /**
-     * Subscribe to successful user login events.
-     */
     public static function getSubscribedEvents(): array
     {
         return [
@@ -36,23 +34,15 @@ final class GroupLoginRedirect extends CMSPlugin implements SubscriberInterface
         ];
     }
 
-    /**
-     * Redirect a frontend user to the first matching configured menu item.
-     *
-     * @param   array  $options  Login event options
-     *
-     * @return  void
-     */
-    public function onUserAfterLogin(array $options): void
+    public function onUserAfterLogin(AfterLoginEvent $event): void
     {
         $app = $this->getApplication();
 
-        // Do not interfere with administrator logins or CLI requests.
-        if (!$app instanceof CMSApplication || !$app->isClient('site')) {
+        if (!$app instanceof CMSApplicationInterface || !$app->isClient('site')) {
             return;
         }
 
-        $user = $options['user'] ?? null;
+        $user = $event->getOptions()['user'] ?? null;
 
         if (!$user || empty($user->id) || empty($user->groups)) {
             return;
@@ -76,13 +66,15 @@ final class GroupLoginRedirect extends CMSPlugin implements SubscriberInterface
 
             $menuItem = $app->getMenu()->getItem($menuItemId);
 
-            if (!$menuItem) {
+            if (!$menuItem || (int) $menuItem->client_id !== 0 || (int) $menuItem->published !== 1) {
                 continue;
             }
 
-            // Build an internal URL from the selected menu item. Route::link()
-            // returns a site-relative URL suitable for the current application.
-            $url = Route::_($menuItem->link . '&Itemid=' . $menuItem->id, false);
+            $url = Route::_('index.php?Itemid=' . $menuItemId, false);
+
+            if (!$url) {
+                continue;
+            }
 
             $app->redirect($url);
             $app->close();
